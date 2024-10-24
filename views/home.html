@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Creator</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            background-image: url('https://cdn4.vectorstock.com/i/1000x1000/36/68/pink-abstract-technological-background-vector-18933668.jpg');
+            background-size: cover;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header, footer {
+            background-color: #583441;
+            background-image: url("https://www.sparsadigital.in/wp-content/uploads/2023/01/15-Undeniable-Benefits-of-a-Content-Management-System.jpg");
+            padding: 15px 0; /* Reduced header size */
+            color: white;
+            box-shadow: 0 4px 8px rgba(23, 15, 15, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header h1, footer p {
+            font-size: 20px; /* Adjusted font size for a smaller header */
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease, transform 0.3s ease; /* Added smooth transition */
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #33040f; /* Change color on hover */
+            transform: scale(1.1); /* Slightly scale up on hover */
+        }
+
+        nav img {
+            margin-top: 10px;
+            transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        nav img:hover {
+            transform: scale(1.1); /* Slightly increase size on hover */
+            opacity: 0.8; /* Reduce opacity on hover */
+        }
+
+        .intro, .dashboard-container {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(60, 25, 51, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro h2, .main-content h2 {
+            font-size: 28px;
+            color: #ad1457;
+        }
+
+        .intro p, .main-content p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .cta-buttons, .dashboard-cards, .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn, .card .btn {
+            padding: 15px 30px;
+            background-color: #ad1457;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+            margin: 10px;
+        }
+
+        .btn:hover, .card .btn:hover {
+            background-color: #880e4f;
+            transform: scale(1.05); /* Slightly scale up on hover */
+        }
+
+        .feature-box, .card {
+            width: 220px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: center;
+            transition: transform 0.3s ease; /* Added transition for hover effect */
+        }
+
+        .feature-box:hover, .card:hover {
+            transform: scale(1.05); /* Slightly scale up on hover */
+        }
+
+        .feature-box h3, .card h3 {
+            font-size: 20px;
+            color: #ad1457;
+            margin-bottom: 15px;
+        }
+
+        .feature-box p, .card p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>CONTENT CREATOR</h1>
+            <nav>
+                <ul>
+                    <li><a href="/aboutus">About us</a></li>
+                    <li><a href="/contactus">Contact</a></li>
+                </ul>
+                <img src="https://www.kindpng.com/picc/m/562-5621728_content-writing-logo-black-hd-png-download.png" alt="Company Logo" width="50" height="50">
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="container intro">
+        <h2>Manage Your Content Seamlessly</h2>
+        <p>Our CMS makes it easy to organize, edit, and publish content across your website. Streamline your workflow with our user-friendly platform.</p>
+        <div class="cta-buttons">
+            <a href="getstarted" class="btn">Get Started</a>
+        </div>
+        <section class="features">
+            <div class="feature-box">
+                <h3>Easy to Use</h3>
+                <p>Navigate through a simple, intuitive interface designed for everyone.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Content Organization</h3>
+                <p>Effortlessly organize your articles, images, and more.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Secure & Reliable</h3>
+                <p>Your data is safe with us. We prioritize security and reliability.</p>
+            </div>
+        </section>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-container">
+        <div class="main-content">
+            <h2>Dashboard Overview</h2>
+            <p>Manage all your content efficiently from here.</p>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Create Post</h3>
+                    <p>Add new articles, stories, and media.</p>
+                    <a href="/post" class="btn">Go to Posts</a>
+                </div>
+                <div class="card">
+                    <h3>Manage Media</h3>
+                    <p>Upload and manage images, videos, and files.</p>
+                    <a href="/managepost" class="btn">Go to Media</a>
+                </div>
+                <div class="card">
+                    <h3>User Profiles</h3>
+                    <p>Manage user accounts and profiles.</p>
+                    <a href="/userprofile" class="btn">Go to Users</a>
+                </div>
+                <div class="card">
+                    <h3>Settings</h3>
+                    <p>Adjust your account and application settings.</p>
+                    <a href="/settings" class="btn">Go to Settings</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p><h6> &copy; 2024 CMS I All rights reserved.</h6></p>
+    </footer>
+</body>
+</html>

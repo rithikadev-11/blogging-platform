@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS</title>
+    <link rel="stylesheet" href="https://www.colourbox.com/preview/17572700-pink-abstract-technological-background-with-various-technological-elements.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            background-image: url("https://tse2.mm.bing.net/th?id=OIP.Fpmqb0XoYTokvzEJkBYDsgHaE8&pid=Api&P=0&h=180");
+            background-size: cover;
+        }
+        .event-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        .event-card img {
+            width: 100%;
+            height: auto;
+        }
+        .event-details {
+            padding: 15px;
+        }
+        .event-name {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+        .event-price {
+            color: green;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        .event-info {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .event-description {
+            margin: 10px 0;
+        }
+        .register-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .register-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>CONTENT HERE</h1>
+
+    <div class="event-container">
+        <div class="event-card">
+            <img src="https://www.cementequipment.org/wp-content/uploads/2016/09/Newspaper-Articles.jpg" alt="Article">
+            <div class="event-details">
+                <h2 class="event-name">Article</h2>
+                <p class="event-price">$80</p>
+                <p class="event-info"><strong>Category:</strong> Interview, case study, Tutorials, personal stories</p>
+                <p class="event-description">Conversations with experts, influencers, or interesting personalities in a particular field.</p>
+                <button class="register-button" onclick="window.location.href='/post'">Post</button>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.hx5kKYwjxlUkkhSPsNdBCQHaHW&pid=Api&P=0&h=180" alt="Blog">
+            <div class="event-details">
+                <h2 class="event-name">Blog</h2>
+                <p class="event-price">$70</p>
+                <p class="event-info"><strong>Category:</strong> Personal Blog, Professional Blog, Business Blog</p>
+                <p class="event-description">A web page that shares written content, typically in an informal or conversational style, on various topics or interests.</p>
+                <button class="register-button" onclick="window.location.href='/post'">Post</button>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.iwIpbNuocpJSxbfnyKgARwHaE8&pid=Api&P=0&h=180" alt="Story">
+            <div class="event-details">
+                <h2 class="event-name">Story</h2>
+                <p class="event-price">$50</p>
+                <p class="event-info"><strong>Category:</strong> Kids, Horror, Mystery</p>
+                <p class="event-description">An engaging tale designed to entertain and provoke thought.</p>
+                <button class="register-button" onclick="window.location.href='/post'">Post</button>
+            </div>
+        </div>
+        <div class="event-card">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.A3B82eV3M5j-hwYf8Umb9wHaE7&pid=Api&P=0&h=180" alt="website">
+            <div class="event-details">
+                <h2 class="event-name">website</h2>
+                <p class="event-price">$50</p>
+                <p class="event-info"><strong>Category:</strong> Study,Sports</p>
+                <p class="event-description">You can content oyur own website.</p>
+                <button class="register-button" onclick="window.location.href='/post'">Post</button>
+            </div>
+        </div>
+        <div class="event-card">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.yRkKo3WdAfpcOyoJ0qOJkQHaFc&pid=Api&P=0&h=180" alt="website">
+            <div class="event-details">
+                <h2 class="event-name">catalog</h2>
+                <p class="event-price">$50</p>
+                <p class="event-info"><strong>Category:</strong>Manage product categories, promotions, and sales.</p>
+                <p class="event-description">You can content your own contecnt for your application.</p>
+                <button class="register-button" onclick="window.location.href='/post'">Post</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+    <script>
+        function toggleForm(eventId) {
+            const form = document.getElementById(eventId);
+            form.style.display = form.style.display === "block" ? "none" : "block";
+        }
+
+        function submitForm(eventName, price) {
+            const name = document.querySelector(`#name-${eventName.replace(/\s+/g, '-').toLowerCase()}`).value;
+            const email = document.querySelector(`#email-${eventName.replace(/\s+/g, '-').toLowerCase()}`).value;
+
+            if (name && email) {
+                alert(`Thank you for registering for ${eventName}!\nPrice: $${price}\nName: ${name}\nEmail: ${email}`);
+                // Reset the form or any other actions you want to perform
+                document.querySelector(`#name-${eventName.replace(/\s+/g, '-').toLowerCase()}`).value = '';
+                document.querySelector(`#email-${eventName.replace(/\s+/g, '-').toLowerCase()}`).value = '';
+                toggleForm(eventId);
+            } else {
+                alert("Please fill in both fields.");
+            }
+        }
+    </script>
+</body>
+</html>

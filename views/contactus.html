@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CMS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            background-image: url("https://cdn3.vectorstock.com/i/1000x1000/36/77/pink-abstract-technological-background-vector-18933677.jpg");
+            background-size: cover;
+        }
+        .contact-container {
+            max-width: 800px;
+            margin: auto;
+            background: #3d1e31;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #d2b6c6;
+        }
+        .contact-details, .contact-form {
+            margin-top: 20px;
+        }
+        .contact-details p {
+            font-size: 1rem;
+            margin: 10px 0;
+            color: #b28dac;
+        }
+        .contact-details p strong {
+            color: #151414;
+        }
+        .contact-form form {
+            display: grid;
+            gap: 15px;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        
+        <div class="contact-details">
+            <p><strong>Address:</strong> 123 Content Street, Writer's City, WC 45678</p>
+            <p><strong>Phone:</strong> 9999991234</p>
+            <p><strong>Email:</strong> support@cmsplatform.com</p>
+        </div>
+
+        <div class="contact-form">
+            <form id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            const name = event.target.name.value;
+            const email = event.target.email.value;
+            const message = event.target.message.value;
+
+            if (name && email && message) {
+                alert(`Thank you, ${name}! Your message has been sent successfully.`);
+                // Clear the form fields
+                event.target.name.value = '';
+                event.target.email.value = '';
+                event.target.message.value = '';
+            } else {
+                alert("Please fill out all fields before submitting.");
+            }
+        });
+    </script>
+</body>
+</html>

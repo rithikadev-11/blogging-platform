@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - CMS</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #4caf50; /* Green */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #4caf50; /* Green */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #388e3c;
+        }
+
+        .settings-section {
+            margin-top: 20px;
+        }
+
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 25px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 17px;
+            width: 17px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #4caf50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .container.dark-mode {
+            background: rgba(33, 33, 33, 0.9);
+            color: #e0e0e0;
+        }
+
+        .dark-mode .btn {
+            background-color: #388e3c;
+        }
+
+        .dark-mode .btn:hover {
+            background-color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Settings</h1>
+        </header>
+
+        <section class="settings-section">
+            <h2>Account Settings</h2>
+            <form id="account-settings-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" value="john_doe" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" value="john.doe@example.com" required>
+
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </section>
+
+        <section class="settings-section">
+            <h2>Application Settings</h2>
+            <div class="dark-mode-toggle">
+                <span>Dark Mode</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="dark-mode-switch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Update Account Settings Functionality
+        document.getElementById('account-settings-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            
+            alert(`Settings saved: Username - ${username}, Email - ${email}`);
+        });
+
+        // Dark Mode Toggle Functionality
+        const darkModeSwitch = document.getElementById('dark-mode-switch');
+        
+        // Check local storage for dark mode setting
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            darkModeSwitch.checked = true;
+        }
+
+        darkModeSwitch.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+</body>
+</html>

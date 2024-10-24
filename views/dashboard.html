@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Total Content Management</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1; /* Light baby pink background */
+            background-image: url('https://www.example.com/technical-background.jpg'); /* Replace with actual image URL */
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .dashboard-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            text-align: center;
+            padding: 15px;
+            background-color: #ffccd5; /* Darker pink for the header */
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #d6336c;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #9d0208; /* Darker pink/red on hover */
+        }
+
+        .main-content {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .main-content h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .dashboard-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .card {
+            width: 220px;
+            padding: 20px;
+            background-color: #ffd6e0; /* Soft pink for the cards */
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #d6336c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #9d0208;
+        }
+
+        /* Background animation */
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .card {
+            animation: floating 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Welcome to Your Total Content Management Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="posts.html">Posts</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="users.html">Users</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="main-content">
+            <h2>Dashboard Overview</h2>
+            <p>Manage all your content efficiently from here.</p>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Create Post</h3>
+                    <p>Add new articles, stories, and media.</p>
+                    <a href="create-post.html" class="btn">Go to Posts</a>
+                </div>
+                <div class="card">
+                    <h3>Manage Media</h3>
+                    <p>Upload and manage images, videos, and files.</p>
+                    <a href="media.html" class="btn">Go to Media</a>
+                </div>
+                <div class="card">
+                    <h3>User Profiles</h3>
+                    <p>Manage user accounts and profiles.</p>
+                    <a href="users.html" class="btn">Go to Users</a>
+                </div>
+                <div class="card">
+                    <h3>Settings</h3>
+                    <p>Adjust your account and application settings.</p>
+                    <a href="settings.html" class="btn">Go to Settings</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Example JavaScript functionality - customize as needed
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    alert(`Navigating to ${card.querySelector('h3').textContent}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

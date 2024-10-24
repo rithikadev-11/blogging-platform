@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Media - CMS</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-size: cover;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #f06292; /* Soft pink */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #ad1457; /* Darker pink */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #880e4f;
+        }
+
+        .media-list {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .media-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background: #fff;
+        }
+
+        .media-item img {
+            max-width: 50px;
+            max-height: 50px;
+            margin-right: 10px;
+        }
+
+        .media-item video {
+            max-width: 50px;
+            max-height: 50px;
+            margin-right: 10px;
+        }
+
+        .remove-btn {
+            background-color: #e57373; /* Light Red */
+        }
+
+        .remove-btn:hover {
+            background-color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Manage Media</h1>
+        </header>
+
+        <form id="media-form">
+            <label for="media-upload">Upload Media</label>
+            <input type="file" id="media-upload" multiple accept="image/*,video/*,.pdf,.doc,.docx">
+            <button type="submit" class="btn">Upload</button>
+        </form>
+
+        <div class="media-list" id="media-list">
+            <h2>Uploaded Media</h2>
+            <!-- Media items will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('media-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const mediaUpload = document.getElementById('media-upload');
+            const mediaList = document.getElementById('media-list');
+
+            if (mediaUpload.files.length === 0) {
+                alert("Please select files to upload.");
+                return;
+            }
+
+            for (let i = 0; i < mediaUpload.files.length; i++) {
+                const file = mediaUpload.files[i];
+                const mediaItem = document.createElement('div');
+                mediaItem.classList.add('media-item');
+
+                // Create a preview for images and videos
+                if (file.type.startsWith('image/')) {
+                    const img = document.createElement('img');
+                    img.src = URL.createObjectURL(file);
+                    mediaItem.appendChild(img);
+                } else if (file.type.startsWith('video/')) {
+                    const video = document.createElement('video');
+                    video.src = URL.createObjectURL(file);
+                    video.controls = true;
+                    mediaItem.appendChild(video);
+                } else {
+                    const fileName = document.createElement('span');
+                    fileName.textContent = file.name;
+                    mediaItem.appendChild(fileName);
+                }
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.className = 'btn remove-btn';
+                removeButton.onclick = function() {
+                    mediaList.removeChild(mediaItem);
+                };
+
+                mediaItem.appendChild(removeButton);
+                mediaList.appendChild(mediaItem);
+            }
+
+            // Reset the form
+            mediaUpload.value = '';
+        });
+    </script>
+</body>
+</html>
